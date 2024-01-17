@@ -7,7 +7,7 @@
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
     <property name="today" value="now()" dbms="!oracle"/>
     <property name="today" value="sysdate" dbms="oracle"/>
-    <property name="tomorrow" value="now() INTERVAL 1 DAY" dbms="!oracle"/>
+    <property name="tomorrow" value="now() + INTERVAL 1 DAY" dbms="!oracle"/>
     <property name="tomorrow" value="sysdate + INTERVAL '1' DAY" dbms="oracle"/>
     <changeSet id="1" author="jmix">
         <insert tableName="AIRLINE">
