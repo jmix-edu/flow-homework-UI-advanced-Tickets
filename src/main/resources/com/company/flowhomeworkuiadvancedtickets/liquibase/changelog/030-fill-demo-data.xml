@@ -5,6 +5,10 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd"
         objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <property name="today" value="now()" dbms="!oracle"/>
+    <property name="today" value="sysdate" dbms="oracle"/>
+    <property name="tomorrow" value="now() INTERVAL 1 DAY" dbms="!oracle"/>
+    <property name="tomorrow" value="sysdate + INTERVAL '1' DAY" dbms="oracle"/>
     <changeSet id="1" author="jmix">
         <insert tableName="AIRLINE">
             <column name="ID">813be13a-5d2f-4f32-9f51-13d67468deb4</column>
@@ -70,7 +74,7 @@
             <column name="AIRLINE_ID">3f652890-812d-4758-a80d-035c092db2de</column>
             <column name="FROM_AIRPORT_ID">73fe23c7-bf44-4979-a49e-71609b76b8a8</column>
             <column name="TO_AIRPORT_ID">ebd5b89e-059b-4c75-9d71-5859261cf85a</column>
-            <column name="TAKE_OFF_DATE">2022-09-15 12:15:00</column>
+            <column name="TAKE_OFF_DATE" valueDate="${today}"/>
         </insert>
         <insert tableName="FLIGHT">
             <column name="ID">079a3230-7825-45e4-a282-ba7202834319</column>
@@ -78,7 +82,7 @@
             <column name="AIRLINE_ID">3f652890-812d-4758-a80d-035c092db2de</column>
             <column name="FROM_AIRPORT_ID">73fe23c7-bf44-4979-a49e-71609b76b8a8</column>
             <column name="TO_AIRPORT_ID">6fb2102f-c9c3-407e-8f4c-a0b1f42453f4</column>
-            <column name="TAKE_OFF_DATE">2022-09-16 21:50:00</column>
+            <column name="TAKE_OFF_DATE" valueDate="${today}"/>
         </insert>
         <insert tableName="FLIGHT">
             <column name="ID">0390dfc9-e809-4336-912b-e65f0697157e</column>
@@ -86,7 +90,7 @@
             <column name="AIRLINE_ID">813be13a-5d2f-4f32-9f51-13d67468deb4</column>
             <column name="FROM_AIRPORT_ID">ef2fb39d-c0cf-4e18-93e2-f2f8a4afac86</column>
             <column name="TO_AIRPORT_ID">d2985e26-fefa-42f8-b975-1b3ca631f1e2</column>
-            <column name="TAKE_OFF_DATE">2022-09-17 00:35:00</column>
+            <column name="TAKE_OFF_DATE" valueDate="${today}"/>
         </insert>
         <insert tableName="FLIGHT">
             <column name="ID">03919cc7-0f84-4c95-8c06-f6ea0b778c20</column>
@@ -94,7 +98,7 @@
             <column name="AIRLINE_ID">8c12cd0b-d4e7-4c07-ad96-e342829c930a</column>
             <column name="FROM_AIRPORT_ID">6fb2102f-c9c3-407e-8f4c-a0b1f42453f4</column>
             <column name="TO_AIRPORT_ID">ebd5b89e-059b-4c75-9d71-5859261cf85a</column>
-            <column name="TAKE_OFF_DATE">2022-09-15 18:20:00</column>
+            <column name="TAKE_OFF_DATE" valueDate="${tomorrow}"/>
         </insert>
         <insert tableName="FLIGHT">
             <column name="ID">d9ff28e5-c4f8-4a98-a9d8-9c4be62e76d1</column>
@@ -102,7 +106,7 @@
             <column name="AIRLINE_ID">a8a4e1a6-1fd9-46da-afff-150ac6ba13f2</column>
             <column name="FROM_AIRPORT_ID">ebd5b89e-059b-4c75-9d71-5859261cf85a</column>
             <column name="TO_AIRPORT_ID">73fe23c7-bf44-4979-a49e-71609b76b8a8</column>
-            <column name="TAKE_OFF_DATE">2022-09-16 05:30:00</column>
+            <column name="TAKE_OFF_DATE" valueDate="${tomorrow}"/>
         </insert>
     </changeSet>
 </databaseChangeLog>
