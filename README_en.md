@@ -16,13 +16,11 @@ Create new top level menu item - "Reference data" (use menu.xml in Studio).
 Create Airline CRUD views:
 - User Master-detail view template.
 - Put the screen inside Reference data menu.
-- In the screen set "iataCode" text field to transform to upper case automatically.
 
 Create Airport CRUD views:
 - Use Entity list and detail views template to create both views at once.
 - Put the list view screen to Reference data menu.
 - Editor screen (detail view) should always be opened as a modal dialog. Dialog should not have any redundant empty space.
-- In the editor screen text field "code" must be converted to upper case, too.
 
 #### 2. Flight data screens
 Create Flight CRUD screens:
@@ -32,7 +30,6 @@ Create Flight CRUD screens:
 
 Set up the editor screen:
 - Should be opened as modal dialog.
-- Regroup the form - add second column and move there two fields: fromAirport и toAirport.
 - Change airline selecting component to other - EntityComboBox with items fetch callback (entitySuggestionField Flex analog).
   Options to show must be selected by "name contains" criteria, case-insensitive.
 
